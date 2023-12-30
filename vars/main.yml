@@ -4,5 +4,6 @@
 pve_exporter_conf_path: "/usr/share/pve_exporter"
 pve_exporter_group: "pve_exporter"
 pve_exporter_user: "pve_exporter"
-pve_exporter_proxmox_user: "prombot@pve"
-pve_exporter_proxmox_password: ""
+pve_exporter_proxmox_user: "prombot@pve" # create user in pve cluster before
+pve_exporter_token_name: "" # create a token before, in "Permissions/API Token"
+pve_exporter_token_value: ""
