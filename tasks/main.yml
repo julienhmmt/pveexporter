@@ -18,7 +18,7 @@
     shell: "/bin/false"
     state: present
 
-- name: Install python3-pip
+- name: Install needed python3-packages
   ansible.builtin.apt:
     install_recommends: false
     name:

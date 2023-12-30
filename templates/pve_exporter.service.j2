@@ -8,7 +8,7 @@ Wants=network.target
 
 [Service]
 ExecReload=/bin/kill -HUP $MAINPID
-ExecStart=/usr/local/bin/pve_exporter {{ pve_exporter_conf_path }}/pve_exporter.yml 9221 {{ ansible_host }}
+ExecStart={{ pve_exporter_conf_path }}/bin/pve_exporter {{ pve_exporter_conf_path }}/pve_exporter.yml 9221 {{ ansible_host }}
 Group={{ pve_exporter_group }}
 Restart=on-failure
 SyslogIdentifier=pve_exporter
