@@ -1,0 +1,31 @@
+# {{ ansible_managed }}
+
+[Unit]
+After=network.target
+Description=Proxmox VE Prometheus Exporter
+Documentation=https://pypi.org/project/prometheus-pve-exporter
+Wants=network.target
+
+[Service]
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStart=/usr/local/bin/pve_exporter {{ pve_exporter_conf_path }}/pve_exporter.yml 9221 {{ ansible_host }}
+Group={{ pve_exporter_group }}
+Restart=on-failure
+SyslogIdentifier=pve_exporter
+Type=simple
+User={{ pve_exporter_user }}
+WorkingDirectory={{ pve_exporter_conf_path }}
+
+## hardening
+# more info at https://gist.github.com/ageis/f5595e59b1cddb1513d1b425a323db04 & https://www.freedesktop.org/software/systemd/man/systemd.exec.html
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RestrictNamespaces=true
+RestrictRealtime=true
+
+[Install]
+WantedBy=multi-user.target
