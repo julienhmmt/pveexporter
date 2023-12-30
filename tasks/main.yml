@@ -25,6 +25,7 @@
       - python3-pip
       - python3-virtualenv
     state: present
+    update_cache: true
   check_mode: false
 
 - name: Install package with python3-pip
