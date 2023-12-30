@@ -23,8 +23,15 @@
     install_recommends: false
     name:
       - python3-pip
+      - python3-virtualenv
     state: present
   check_mode: false
+
+- name: Install package with python3-pip
+  ansible.builtin.pip:
+    name: prometheus-pve-exporter
+    state: present
+    virtualenv: "{{ pve_exporter_conf_path }}"
 
 - name: Create the folder where we're storing the pve_exporter configuration file
   ansible.builtin.file:
