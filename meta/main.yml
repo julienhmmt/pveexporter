@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Julien HOMMET
+  description: a simple role to install pve exporter into a Debian host
+  license: GPLv3
+  min_ansible_version: "2.9"
+  namespace: homelab
+  platforms:
+    - name: Debian
+      versions:
+        - bookworm
+  role_name: pveexporter
+dependencies:
+  []

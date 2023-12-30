@@ -1,0 +1,8 @@
+---
+# file: vars/main.yml
+
+pve_exporter_conf_path: "/usr/share/pve_exporter"
+pve_exporter_group: "pve_exporter"
+pve_exporter_user: "pve_exporter"
+pve_exporter_proxmox_user: "prombot@pve"
+pve_exporter_proxmox_password: ""

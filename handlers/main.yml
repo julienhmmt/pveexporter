@@ -1,0 +1,11 @@
+---
+# file: handlers/main.yml
+
+- name: Restart PVEExporter
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+    enabled: true
+    masked: false
+    name: pve_exporter
+    scope: system
+    state: restarted
